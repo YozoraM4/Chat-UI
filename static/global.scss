@@ -47,6 +47,10 @@ $white: #ffffff;
 .bx--header__name{
     display: none !important;
 }
+.bx--text-input {
+    border: 1px solid #c2b5ff !important;
+    border-radius: 50px !important;
+}
 // .bx--header{
 //     background-color: #ffffff;
 //     border-bottom: 1px solid #f96464;
@@ -88,6 +92,10 @@ a.bx--header__menu-item:hover{
 .text-right{
     text-align: right;
 }
+.pw-1{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 .p-0{
     padding: 0px !important;
 }
@@ -124,8 +132,14 @@ a.bx--header__menu-item:hover{
     width: 100%;
     height: auto;
 }
+.border{
+    border: 1px solid #c2b5ff;
+}
 .b-bottom{
     border-bottom: 1px solid #c2b5ff;
+}
+.b-radius{
+  border-radius: 50px;  
 }
 .box-shadow{
     box-shadow: 0 0 10px #c6b2f6;

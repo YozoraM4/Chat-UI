@@ -9,6 +9,7 @@
   import PhoneFilled20 from "carbon-icons-svelte/lib/PhoneFilled20";
   import InformationFilled20 from "carbon-icons-svelte/lib/InformationFilled20";
   import Add20 from "carbon-icons-svelte/lib/Add20";
+  import SendAltFilled20 from "carbon-icons-svelte/lib/SendAltFilled20";
   import { getContext } from "svelte";
 
   const { carbon_theme } = getContext("Theme");
@@ -294,9 +295,14 @@
           <p>text right</p>
         </div>
       </div>
-      <div>
-        <TextInput size="xl" placeholder="Aa..." />
-      </div>
+      <Row>
+        <TextInput size="xl" placeholder="Aa..." class="pw-1" />
+        <Column sm={1} md={1} lg={1} class="m-auto p-0">
+          <span class="chat-icon">
+            <SendAltFilled20 />
+          </span>
+        </Column>
+      </Row>
     </Column>
 
     <Column
