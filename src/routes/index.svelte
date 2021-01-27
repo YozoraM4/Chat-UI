@@ -13,7 +13,54 @@
   import { getContext } from "svelte";
 
   const { carbon_theme } = getContext("Theme");
+
+  import {onMount} from "svelte";
+
+let messages = [];
+let inputValue = "";
+async function handleSendMessage () {
+    const result =await fetch(`http://localhost:9191/chat`, {
+        body: JSON.stringify({
+            message: inputValue,
+            username: "Kelvin",
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'POST',
+    });
+    inputValue="";
+    // const get = await result.json()
+    // messages = messages.concat(get.chat)
+};
+
+onMount(async () => {
+    messages = getMessages()
+//     const store = createChannelStore();
+//     store.subscribe(incomingMessages => {
+//       console.log(incomingMessages)
+//       messages = await messages.concat(incomingMessages);
+//     });
+//     // return store.close;
+//   });
+const eventSource = new EventSource(
+    `http://localhost:9191/chatUpdate`
+  );
+
+  eventSource.onmessage = (e) => {
+    console.log(e)
+    messages= messages.concat(JSON.parse(e.data));
+  };
+})
+async function getMessages() {
+  const result = await fetch ('http://localhost:9191/chat')
+
+const gets = await result.json();
+messages = gets.chat;
+console.log(messages)
+}
 </script>
+
 
 <!-- <Row>
   <Column lg="{16}">
@@ -288,18 +335,25 @@
         </Column>
       </Row>
       <div class="p-1 chat-content">
-        <div class="left-msg">
-          <p>text left</p>
+      {#await messages}
+      <progress class="progress is-small is-primary" max="100">15%</progress>
+        {:then list}
+        {#each list as message}
+          <div class="right-msg f-right">
+          <p>{message}</p>
+          </div>
+        {/each}
+  
+        {:catch error}
+        <p style="color: red">{error.message}</p>
+        {/await}
         </div>
-        <div class="right-msg f-right">
-          <p>text right</p>
-        </div>
-      </div>
+        
       <Row>
-        <TextInput size="xl" placeholder="Aa..." class="pw-1" />
+        <TextInput bind:value={inputValue} ref="text" size="xl" placeholder="Aa..." class="pw-1" />
         <Column sm={1} md={1} lg={1} class="m-auto p-0">
           <span class="chat-icon">
-            <SendAltFilled20 />
+            <button on:click={handleSendMessage}><SendAltFilled20/> </button>
           </span>
         </Column>
       </Row>
