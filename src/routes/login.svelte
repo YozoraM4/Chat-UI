@@ -42,20 +42,20 @@
 
 	</script>
   
-  <Row class="h-full">
-    <Column sm={1} md={4} lg={10} class="slogan">
+  <Row class="h-full mh-30">
+    <Column sm={4} md={8} lg={10} class="slogan">
       <div class="login-slogan">
-        <div>
+        <div class="dear-img">
           <img src="/cover.png" alt="Aijou" class="img-fluid slogan-img">
         </div>
-        <div>
+        <div class="dear-txt">
           <h3 class="mh-1">Hello Dear, <br> Aijou is connecting with Love   </h3>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nesciunt sed, cum blanditiis iste, similique maiores autem ducimus maxime fugit ipsum doloribus illum facilis soluta assumenda excepturi dolores eos accusantium.</p>
         </div>
       </div>
     </Column>
 
-    <Column sm={1} md={4} lg={6} class="login">
+    <Column sm={4} md={8} lg={6} class="login">
       <div class="login-form">
         <h3 class="text-center mh-2">Login</h3>
         <Form class="pw-5">
