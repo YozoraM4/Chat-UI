@@ -1,3 +1,13 @@
+<script context="module">
+
+export async function preload({ params }) {
+  const	  slug  = params
+  console.log(slug);
+  return {slug }
+	}
+</script>
+
+
 <script>
   import {
     Row,
@@ -15,13 +25,16 @@
   import { getContext } from "svelte";
 
   const { carbon_theme } = getContext("Theme");
-
+  import { get } from 'svelte/store'
   import {onMount} from "svelte";
-
 let messages = [];
 let inputValue = "";
+export let slug;
+
+
 async function handleSendMessage () {
-    const result =await fetch(`http://localhost:9191/chat`, {
+  
+    const result =await fetch(`http://localhost:9191/chat/${slug.parts}`, {
         body: JSON.stringify({
             message: inputValue,
             username: "Kelvin",
@@ -37,6 +50,8 @@ async function handleSendMessage () {
 };
 
 onMount(async () => {
+  if (typeof window !== 'undefined') {
+ 
     messages = getMessages()
 //     const store = createChannelStore();
 //     store.subscribe(incomingMessages => {
@@ -46,16 +61,20 @@ onMount(async () => {
 //     // return store.close;
 //   });
 const eventSource = new EventSource(
-    `http://localhost:9191/chatUpdate`
+ 
+    `http://localhost:9191/chatUpdate/${slug.parts}`
   );
 
   eventSource.onmessage = (e) => {
     console.log(e)
     messages= messages.concat(JSON.parse(e.data));
   };
+}
 })
+
 async function getMessages() {
-  const result = await fetch ('http://localhost:9191/chat')
+  console.log(slug)
+  const result = await fetch (`http://localhost:9191/chat/${slug.parts}`)
 
 const gets = await result.json();
 messages = gets.chat;
@@ -477,20 +496,25 @@ console.log(messages)
           </span>
         </Column>
       </Row>
-      <div class="p-1 chat-content">
+     
       {#await messages}
       <progress class="progress is-small is-primary" max="100">15%</progress>
         {:then list}
+        <div class="p-1 chat-content">
+        
         {#each list as message}
+        
           <div class="right-msg f-right">
-          <p>{message}</p>
+          <p>{message.message}</p>
           </div>
+        
         {/each}
+        </div>
   
         {:catch error}
         <p style="color: red">{error.message}</p>
         {/await}
-        </div>
+        
         
       <Row>
         <Column sm={1} md={1} lg={1} class="m-auto text-center">
