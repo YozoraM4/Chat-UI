@@ -4,6 +4,8 @@
     Column,
     TextInput,
     ClickableTile,
+    OverflowMenu,
+    OverflowMenuItem,
   } from "carbon-components-svelte";
   import VideoFilled20 from "carbon-icons-svelte/lib/VideoFilled20";
   import PhoneFilled20 from "carbon-icons-svelte/lib/PhoneFilled20";
@@ -59,74 +61,8 @@ const gets = await result.json();
 messages = gets.chat;
 console.log(messages)
 }
+
 </script>
-
-
-<!-- <Row>
-  <Column lg="{16}">
-    <Breadcrumb noTrailingSlash aria-label="Page navigation">
-      <BreadcrumbItem href="/">Getting started</BreadcrumbItem>
-    </Breadcrumb>
-    <h1 style="margin-bottom: 1.5rem">Design &amp; build with Carbon</h1>
-  </Column>
-</Row>
-
-<Row>
-  <Column noGutter>
-    <Tabs aria-label="Tab navigation">
-      <Tab label="About" />
-      <Tab label="Design" />
-      <Tab label="Develop" />
-      <div slot="content" class="tabbed-content">
-        <Grid as fullWidth let:props>
-          <TabContent {...props}>
-            <Row>
-              <Column md="{4}" lg="{7}">
-                <Select
-                  labelText="Carbon theme"
-                  bind:selected="{$carbon_theme}"
-                  style="margin-bottom: 1rem"
-                >
-                  <SelectItem value="white" text="White" />
-                  <SelectItem value="g10" text="Gray 10" />
-                  <SelectItem value="g90" text="Gray 90" />
-                  <SelectItem value="g100" text="Gray 100" />
-                </Select>
-                <p>
-                  Carbon is IBM’s open-source design system for digital products
-                  and experiences. With the IBM Design Language as its
-                  foundation, the system consists of working code, design tools
-                  and resources, human interface guidelines, and a vibrant
-                  community of contributors.
-                </p>
-              </Column>
-            </Row>
-          </TabContent>
-          <TabContent {...props}>
-            <Row>
-              <Column md="{4}" lg="{7}">
-                <p>
-                  Rapidly build beautiful and accessible experiences. The Carbon
-                  kit contains all resources you need to get started.
-                </p>
-              </Column>
-            </Row>
-          </TabContent>
-          <TabContent {...props}>
-            <Row>
-              <Column md="{4}" lg="{7}">
-                <p>
-                  Carbon provides styles and components in Vanilla, React,
-                  Angular, Vue and Svelte for anyone building on the web.
-                </p>
-              </Column>
-            </Row>
-          </TabContent>
-        </Grid>
-      </div>
-    </Tabs>
-  </Column>
-</Row> -->
 
   <Row class="p-0">
     <Column 
@@ -136,7 +72,7 @@ console.log(messages)
     <div>
       <h3>Chats</h3>
     </div>   
-    <div>
+    <div class="list-scroll">
       <ClickableTile href="" class="chats">
         <Row class="">
           <Column class="d-inlineflex">
@@ -150,9 +86,11 @@ console.log(messages)
             </div>
           </Column>
           <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
           </Column>
         </Row>
       </ClickableTile>
@@ -169,9 +107,11 @@ console.log(messages)
             </div>
           </Column>
           <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
           </Column>
         </Row>
       </ClickableTile>
@@ -187,11 +127,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -206,11 +148,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -225,11 +169,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -244,11 +190,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -263,11 +211,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -282,11 +232,13 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
       <ClickableTile href="" class="chats">
@@ -301,11 +253,202 @@ console.log(messages)
               <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
             </div>
           </Column>
-          <!-- <Column lg={1} class="m-auto text-right">
-            <span class="chat-icon">
-              <Add20 />
-            </span>
-          </Column> -->
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Yozora
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Simbad
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Kaguya
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Ishigami-kun
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Natsuki Subaru
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Emillia
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Rem
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Monkey D Luffy
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
+        </Row>
+      </ClickableTile>
+      <ClickableTile href="" class="chats">
+        <Row class="">
+          <Column class="d-inlineflex">
+            <img src="/default.png" alt="" class="img-fluid chat-img">
+            <div class="mh-auto">
+              <span>
+                Yozora
+              </span>
+              <br>  
+              <span class="t-overflow">Konnichiwa Aino-san blah blah blah blah</span>
+            </div>
+          </Column>
+          <Column lg={1} class="m-auto text-right">
+            <OverflowMenu class="send-btn" flipped>
+              <OverflowMenuItem text="Mute" />
+              <OverflowMenuItem text="Block" />
+              <OverflowMenuItem danger text="Delete" />
+            </OverflowMenu>
+          </Column>
         </Row>
       </ClickableTile>
     </div>
@@ -350,11 +493,14 @@ console.log(messages)
         </div>
         
       <Row>
-        <TextInput bind:value={inputValue} ref="text" size="xl" placeholder="Aa..." class="pw-1" />
-        <Column sm={1} md={1} lg={1} class="m-auto p-0">
-          <span class="chat-icon">
-            <button on:click={handleSendMessage}><SendAltFilled20/> </button>
-          </span>
+        <Column sm={1} md={1} lg={1} class="m-auto text-center">
+          <button class="send-btn"><Add20/></button>
+        </Column>
+        <Column  sm={2} md={6} lg={14}>
+          <TextInput bind:value={inputValue} ref="text" size="xl" placeholder="Aa..." class="" />
+        </Column>
+        <Column sm={1} md={1} lg={1} class="m-auto text-center pl-0">
+            <button on:click={handleSendMessage} class="send-btn"><SendAltFilled20/> </button>
         </Column>
       </Row>
     </Column>
@@ -364,5 +510,6 @@ console.log(messages)
     md={2}
     lg={4}>
       <p>etc</p>
+     
     </Column>
   </Row>

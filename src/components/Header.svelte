@@ -32,7 +32,7 @@
       <HeaderGlobalAction aria-label="Notification" icon={Notification20} />
       <!-- <img src="/profile.png" alt="" class="img-fluid"> -->
       <HeaderNavMenu text="Menu">
-        <HeaderNavItem href="/" text="Profile" />
+        <HeaderNavItem href="upload" text="Profile" />
         <HeaderNavItem href="/" text="setting" />
         <HeaderNavItem href="/" text="Logout"/>
       </HeaderNavMenu>

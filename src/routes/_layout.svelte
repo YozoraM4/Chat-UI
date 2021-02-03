@@ -20,8 +20,8 @@
 
 <Theme persist theme="g10">
   <Header segment="{segment}" />
-  <Content class="pl-0 pr-0 pt-0 pb-0" style="min-height:95vh;">
-    <Grid class="" style="min-height:95vh;">
+  <Content class="pl-0 pr-0 pt-0 pb-0 overflow-hidden h-full w-full">
+    <Grid class="h-full w-full">
       <slot />
     </Grid>
   </Content>
